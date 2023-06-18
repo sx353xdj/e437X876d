@@ -61,13 +61,10 @@
 
 				this.load = function(src) {
 					return new Promise((resolve, reject) => {
-						videoElement = document.createElement('video');
-						videoElement.autoplay = false;
-						videoElement.loop = true;
-
-						videoElement.addEventListener('loadedmetadata', () => {
-							videoWidth = videoElement.videoWidth;
-							videoHeight = videoElement.videoHeight;
+						videoElement = new Image();
+						videoElement.addEventListener('load', () => {
+							videoWidth = videoElement.width;
+							videoHeight = videoElement.height;
 							videoCanvas.width = videoWidth;
 							videoCanvas.height = videoHeight;
 							resolve();
@@ -78,7 +75,6 @@
 						});
 
 						videoElement.src = src;
-						document.body.appendChild(videoElement);
 					});
 				};
 
