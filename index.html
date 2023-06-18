@@ -43,8 +43,16 @@
 	<script>
 		window.addEventListener('DOMContentLoaded', (event) => {
 			const video = document.getElementById('myVideo');
-			video.addEventListener('canplaythrough', () => {
-				video.play();
+			const context = new AudioContext();
+			const gainNode = context.createGain();
+			const source = context.createMediaElementSource(video);
+			source.connect(gainNode);
+			gainNode.connect(context.destination);
+			gainNode.gain.setValueAtTime(0, context.currentTime);
+			video.play().then(() => {
+				context.resume().then(() => {
+					gainNode.gain.setValueAtTime(1, context.currentTime);
+				});
 			});
 		});
 	</script>
