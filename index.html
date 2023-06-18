@@ -1,41 +1,43 @@
 <!DOCTYPE html>
 <html>
-	<head>
+<head>
+	<meta charset="utf-8">
+	<title>‎‎</title>
+	<!--<link rel="shortcut icon" type="image/png" href="alpha.png">-->
+	<style type="text/css">
+		body {
+			padding: 0;
+			margin: 0;
+			background: #000000;
+		}
+		h1 {
+			font-size: 20px;
+			margin: 0;
+			padding: 0;
+			text-align: center;
+			font-family: 'Courier New';
+			color: #FFFFFF;
+			position: absolute;
+			top: 10%;
+			left: 50%;
+			transform: translateX(-50%) translateY(-50%);
+		}
 
-        
-			<meta charset="utf-8">
-			<title>‎‎</title>
-			<!--<link rel="shortcut icon" type="image/png" href="alpha.png">-->
-			<style type="text/css">
-				body
-				{
-					padding: 0;
-					margin: 0;
-					background: #000000;
-				}
-				h1
-				{
-					font-size: 20px;
-					margin: 0;
-					padding: 0;
-					text-align: center;
-					font-family: 'Courier New';
-					color: #FFFFFF;
-					position: absolute;
-					top: 10%;
-					left: 50%;
-					transform: translateX(-50%) translateY(-50%);
-				}
-
-
-	<body>
-	<video src="video.webm" autoplay loop controlsList="nodownload"></video>
-
-  <script>
-    // Disable media keys
-    document.addEventListener('keydown', function(event) {
-      event.preventDefault();
-    });
-  </script>
+		.vidcontainer {
+			align-content: center;
+			top: 50%;
+			left: 50%;
+			position: absolute;
+			transform: translateX(-50%) translateY(-50%);
+		}
+	</style>
+</head>
+<body>
+	<!--<h1>refresh the page...</h1>-->
+	<div class="vidcontainer">
+		<video autoplay loop controls disableRemotePlayback width="840" height="472.5">
+			<source src="video.webm" type="video/webm">
+		</video>
+	</div>
 </body>
 </html>
