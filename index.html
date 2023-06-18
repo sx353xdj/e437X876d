@@ -30,14 +30,48 @@
 			position: absolute;
 			transform: translateX(-50%) translateY(-50%);
 		}
+
+		.button {
+			font-family: "Roboto", sans-serif;
+			font-size: 24px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 200px;
+			height: 50px;
+			background-color: #333333;
+			color: #FFFFFF;
+			border: none;
+			border-radius: 8px;
+			cursor: pointer;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translateX(-50%) translateY(-50%);
+		}
 	</style>
 </head>
 <body>
 	<!--<h1>refresh the page...</h1>-->
 	<div class="vidcontainer">
-		<img src="rick.gif" width="840" height="472.5" alt="Rick Astley GIF">
+		<img id="gifImage" src="rick.gif" width="400" height="400" alt="funny gif" style="display: none;">
 	</div>
 
-	<audio src="song.mp3" autoplay loop></audio>
+	<audio id="audioPlayer" src="song.mp3" loop></audio>
+
+	<button id="rewardButton" class="button">Click for reward</button>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			const rewardButton = document.getElementById('rewardButton');
+			const gifImage = document.getElementById('gifImage');
+			const audioPlayer = document.getElementById('audioPlayer');
+
+			rewardButton.addEventListener('click', () => {
+				gifImage.style.display = 'block';
+				audioPlayer.play();
+			});
+		});
+	</script>
 </body>
 </html>
