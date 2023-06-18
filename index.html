@@ -35,9 +35,17 @@
 <body>
 	<!--<h1>refresh the page...</h1>-->
 	<div class="vidcontainer">
-		<video autoplay loop disableRemotePlayback disablepictureinpicture width="840" height="472.5">
+		<video id="myVideo" loop disableRemotePlayback disablepictureinpicture width="840" height="472.5">
 			<source src="video.webm" type="video/webm">
 		</video>
 	</div>
+	
+	<script>
+		window.addEventListener('DOMContentLoaded', (event) => {
+			const video = document.getElementById('myVideo');
+			video.autoplay = true;
+			video.play();
+		});
+	</script>
 </body>
 </html>
