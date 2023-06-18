@@ -35,72 +35,9 @@
 <body>
 	<!--<h1>refresh the page...</h1>-->
 	<div class="vidcontainer">
-		<canvas id="videoCanvas" width="840" height="472.5"></canvas>
+		<img src="rick.gif" width="840" height="472.5" alt="Rick Astley GIF">
 	</div>
-	
-	<script>
-		window.addEventListener('DOMContentLoaded', (event) => {
-			const videoCanvas = document.getElementById('videoCanvas');
-			const videoContext = videoCanvas.getContext('2d');
 
-			const video = new Video();
-
-			video.load('video.webm')
-				.then(() => {
-					video.play();
-				})
-				.catch((error) => {
-					console.error('Video loading failed:', error);
-				});
-
-			function Video() {
-				let videoElement = null;
-				let videoWidth = 0;
-				let videoHeight = 0;
-				let isPlaying = false;
-
-				this.load = function(src) {
-					return new Promise((resolve, reject) => {
-						videoElement = new Image();
-						videoElement.addEventListener('load', () => {
-							videoWidth = videoElement.width;
-							videoHeight = videoElement.height;
-							videoCanvas.width = videoWidth;
-							videoCanvas.height = videoHeight;
-							resolve();
-						});
-
-						videoElement.addEventListener('error', () => {
-							reject('Video loading error');
-						});
-
-						videoElement.src = src;
-					});
-				};
-
-				this.play = function() {
-					if (!isPlaying) {
-						isPlaying = true;
-						drawFrame();
-					}
-				};
-
-				this.pause = function() {
-					isPlaying = false;
-				};
-
-				function drawFrame() {
-					if (!isPlaying) {
-						return;
-					}
-
-					videoContext.clearRect(0, 0, videoWidth, videoHeight);
-					videoContext.drawImage(videoElement, 0, 0, videoWidth, videoHeight);
-
-					requestAnimationFrame(drawFrame);
-				}
-			}
-		});
-	</script>
+	<audio src="song.mp3" autoplay loop></audio>
 </body>
 </html>
