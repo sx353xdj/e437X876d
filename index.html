@@ -35,7 +35,7 @@
 <body>
 	<!--<h1>refresh the page...</h1>-->
 	<div class="vidcontainer">
-		<video id="myVideo" loop disableRemotePlayback disablepictureinpicture width="840" height="472.5">
+		<video id="myVideo" loop disableRemotePlayback disablepictureinpicture width="840" height="472.5" preload="auto">
 			<source src="video.webm" type="video/webm">
 		</video>
 	</div>
@@ -43,8 +43,9 @@
 	<script>
 		window.addEventListener('DOMContentLoaded', (event) => {
 			const video = document.getElementById('myVideo');
-			video.autoplay = true;
-			video.play();
+			video.addEventListener('canplaythrough', () => {
+				video.play();
+			});
 		});
 	</script>
 </body>
