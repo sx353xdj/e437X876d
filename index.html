@@ -29,16 +29,15 @@
 		}
 
 		.vidcontainer {
-			align-content: center;
-			top: 50%;
-			left: 50%;
-			position: absolute;
-			transform: translateX(-50%) translateY(-50%);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
 		}
 
 		.button {
 			font-family: "Courier Std Medium", sans-serif;
-			font-size: 24px;
+			font-size: 3vh;
 			border: none;
 			cursor: pointer;
 			color: #FFFFFF;
@@ -53,9 +52,10 @@
 <body>
 	<!--<h1>refresh the page...</h1>-->
 	<div class="vidcontainer">
-		<img id="gifImage" src="rick.gif" width="300" height="300" alt="rick" style="display: none;">
+		<img id="gifImage" src="rick.gif" alt="rick" style="display: none; max-width: 25%; height: auto;">
 	</div>
 
+	
 	<audio id="audioPlayer" src="song.mp3" loop></audio>
 
 	<button id="rewardButton" class="button">Click</button>
